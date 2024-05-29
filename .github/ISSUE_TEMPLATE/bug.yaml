@@ -40,7 +40,7 @@ body:
       placeholder: |-
         - OS:
         - ROS 2:
-        - Autoware:
+        - SLAM VDB:
     validations:
       required: false
 
