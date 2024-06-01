@@ -28,3 +28,17 @@ body:
       description: Write the definition of done for the task.
     validations:
       required: true
+
+  - type: textarea
+    attributes:
+      label: Dependencies
+      description: Provide necessary dependencies if require (optional).
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Risks
+      description: Specify any risks associated with the task (optional).
+    validations:
+      required: false
