@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.16)
 
 project(slam_vdb VERSION 1.0.0 LANGUAGES CXX)
 
+set(CMAKE_BUILD_TYPE Release) # None, Debug, Release, RelWithDebInfo, MinSizeRel
+
 set(CMAKE_CXX_STANDARD 17) # ensure cmake instructs compiler to use C++17
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # ensure the C++ standard given before is actually used
 set(CMAKE_CXX_EXTENSIONS OFF) # avoid compile flags of the type -std=gnu++1z add
@@ -134,8 +136,8 @@ endif(BUILD_TESTING)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin)
-message(STATUS "LB_CLEANING_PLANNER: Run-time output: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-message(STATUS "LB_CLEANING_PLANNER: Archives output: ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
+message(STATUS "SLAM_VDB: Run-time output: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+message(STATUS "SLAM_VDB: Archives output: ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
 
 # -----------------------------------------------------------------------
 # Install
