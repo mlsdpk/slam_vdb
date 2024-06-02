@@ -3,6 +3,7 @@
 
 #include "slam_vdb/measurement/point/point_xyz.hpp"
 #include "slam_vdb/measurement/pointcloud/pointcloud.hpp"
+#include "slam_vdb/pose/pose.hpp"
 
 namespace slam_vdb {
 class slam_vdb

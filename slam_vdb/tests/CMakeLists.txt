@@ -15,8 +15,9 @@ FetchContent_MakeAvailable(googletest)
 set(EXECUTABLE_OUTPUT_PATH "${${PROJECT_NAME}_BINARY_DIR}")
 
 file(GLOB TEST_SOURCES
-	"measurement/point/*.cpp"
-	"measurement/pointcloud/*.cpp")
+    "measurement/point/*.cpp"
+    "measurement/pointcloud/*.cpp"
+	"pose/*.cpp")
 list(APPEND TEST_SOURCES test_main.cpp)
 add_executable(unit_tests ${TEST_SOURCES})
 
