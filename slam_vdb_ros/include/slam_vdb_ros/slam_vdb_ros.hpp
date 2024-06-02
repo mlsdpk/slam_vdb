@@ -2,18 +2,15 @@
 #define SLAM_VDB__SLAM_VDB_HPP_
 
 #include "rclcpp/rclcpp.hpp"
-
 #include "sensor_msgs/msg/point_cloud2.hpp"
 
-// nanoVDB
-#include "nanovdb/NanoVDB.h"
+namespace slam_vdb_ros {
 
-namespace slam_vdb {
-
-class SlamVDB : public rclcpp::Node {
+class SlamVDBROS : public rclcpp::Node
+{
 public:
-  explicit SlamVDB(const rclcpp::NodeOptions &options);
-  virtual ~SlamVDB();
+  explicit SlamVDBROS(const rclcpp::NodeOptions &options);
+  virtual ~SlamVDBROS();
 
 private:
   void setUpROSParams();
@@ -24,10 +21,9 @@ private:
 private:
   size_t cloud_queue_size_;
 
-  rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr
-      pointcloud_sub_;
+  rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr pointcloud_sub_;
 };
 
-} // namespace slam_vdb
+}  // namespace slam_vdb_ros
 
-#endif // SLAM_VDB__SLAM_VDB_HPP_
+#endif  // SLAM_VDB__SLAM_VDB_HPP_

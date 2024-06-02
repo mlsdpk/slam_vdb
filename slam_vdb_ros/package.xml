@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>slam_vdb</name>
-  <version>0.0.1</version>
-  <description>ROS package for simultaneous localization and mapping (SLAM) with NanoVDB backend</description>
+  <name>slam_vdb_ros</name>
+  <version>1.0.0</version>
+  <description>ROS package for simultaneous localization and mapping (SLAM) using openvdb</description>
   <maintainer email="mlsdphonethk@gmail.com">Phone Thiha Kyaw</maintainer>
 
   <license>TODO: License declaration</license>
