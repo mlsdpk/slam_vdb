@@ -1,7 +1,24 @@
 cmake_minimum_required(VERSION 3.8)
 project(slam_vdb_ros)
 
-set(CMAKE_BUILD_TYPE Release) # None, Debug, Release, RelWithDebInfo, MinSizeRel
+option(SLAM_VDB_LOCATION "Location of SLAM_VDB" ../slam_vdb/install)
+
+# Default build type is Release
+set(CMAKE_CXX_FLAGS_RELEASE)
+set(DEFAULT_BUILD_TYPE "Release")
+
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE ${DEFAULT_BUILD_TYPE})
+  message(STATUS "Using default build type: ${CMAKE_BUILD_TYPE}")
+else()
+  set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE})
+  message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+endif()
+
+set(CMAKE_CXX_STANDARD 17)
+message(STATUS "Require C++${CMAKE_CXX_STANDARD}")
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
@@ -16,7 +33,12 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(Eigen3 REQUIRED)
-find_package(SLAM_VDB 1.0.0 PATHS ../slam_vdb/install)
+
+if(DEFINED SLAM_VDB_LOCATION)
+  find_package(SLAM_VDB 1.0.0 PATHS ${SLAM_VDB_LOCATION} REQUIRED)
+else()
+  find_package(SLAM_VDB 1.0.0 REQUIRED)
+endif()
 
 set(dependencies
   ament_cmake
@@ -26,7 +48,6 @@ set(dependencies
 add_executable(slam_vdb_node src/main.cpp src/slam_vdb_ros.cpp)
 target_link_libraries(slam_vdb_node SLAM_VDB::slam_vdb)
 target_include_directories(slam_vdb_node PUBLIC
-  PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 
