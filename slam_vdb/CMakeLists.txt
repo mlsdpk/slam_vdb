@@ -1,3 +1,9 @@
+# ---------------------------------------------
+# CMake configuration for slam_vdb_ros
+# ---------------------------------------------
+# author - Sriharsha Ghanta (ghanta1996@gmail.com)
+# --------------------------------------------
+
 # The minimum required cmake version
 cmake_minimum_required(VERSION 3.16)
 
