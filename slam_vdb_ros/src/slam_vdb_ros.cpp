@@ -12,7 +12,7 @@ SlamVDBROS::~SlamVDBROS() {}
 
 void SlamVDBROS::setUpROSParams()
 {
-  cloud_queue_size_ = static_cast<size_t>(this->declare_parameter("cloud_queue_size", 0));
+  cloud_queue_size_ = static_cast<size_t>(this->declare_parameter("cloud_queue_size", 10));
   cloud_queue_size_ = std::max(cloud_queue_size_, 0ul);
   RCLCPP_INFO(get_logger(), "cloud_queue_size: %ld", cloud_queue_size_);
 }
