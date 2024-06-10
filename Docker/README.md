@@ -4,7 +4,7 @@ To run the package in the docker, follow these steps
 
 ## Setup
 
-Run the shell script `setup.sh`. It'll create a `bash`/`zsh` function on your machine inside `bashrc`/`zshrc` that will allow you compose a docker image and run the containers
+Run the shell script `setup.sh`. It'll create a `bash`/`zsh` function on your machine inside `bashrc`/`zshrc` that will allow you to compose a docker image and run the containers
 
 ```bash
 cd Docker
