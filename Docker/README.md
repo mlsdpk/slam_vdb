@@ -27,7 +27,7 @@ To launch a new terminal on your docker container
 docker exec -it YOUR_IMAGE_NAME /bin/bash
 ```
 
-**Note: You image name will be your container name**
+**Note: Your image name will be your container name**
 
 Once the build is done, your containers should be up and running. Goto `http://localhost:8080/vnc.html` to visualize your docker container. The visualization to docker is made possible with this repo [here](https://github.com/adeeb10abbas/ros2-docker-dev).
 
