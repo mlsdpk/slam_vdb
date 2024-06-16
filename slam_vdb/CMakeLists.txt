@@ -61,34 +61,28 @@ message(STATUS "Build Documentation: " ${BUILD_DOCUMENTATION})
 # -----------------------------------------------------------------------
 # If individual libraries have different versions  - set them in set_target_properties
 # Target linked with interface
-# -----------------------------------------------------------------------
-# slam_vdb Target
-# -----------------------------------------------------------------------
-add_library(slam_vdb_interface INTERFACE)
-target_compile_features(slam_vdb_interface INTERFACE cxx_std_17)
-target_compile_options(slam_vdb_interface INTERFACE
+
+# Define the library
+add_library(slam_vdb SHARED)
+add_library(slam_vdb::slam_vdb ALIAS slam_vdb)
+
+# Set compile options
+target_compile_options(slam_vdb PRIVATE
 	"$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>>:-ffp-contract=off>"
 	"$<$<CXX_COMPILER_ID:GNU>:-ffp-contract=off>"
 	"$<$<CXX_COMPILER_ID:MSVC>:/fp:precise>"
 )
-add_library(slam_vdb "")
-add_library(SLAM_VDB::slam_vdb ALIAS slam_vdb)
-
-target_link_libraries(slam_vdb
-	PUBLIC slam_vdb_interface
-	INTERFACE Eigen3::Eigen
-)
-
-# Add the headers to the target
-file(GLOB_RECURSE _headers ${CMAKE_CURRENT_LIST_DIR}/include CONFIGURE_DEPEND)
-target_sources(slam_vdb PRIVATE ${_headers})
-unset(_headers)
 
 target_include_directories(slam_vdb
 	PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
 	$<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}>
-	$<INSTALL_INTERFACE:include>)
+	$<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(slam_vdb
+	PUBLIC Eigen3::Eigen
+)
 
 # Add the sources to the target
 file(GLOB_RECURSE _sources ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp CONFIGURE_DEPEND)
@@ -172,7 +166,7 @@ configure_file(cmake/${PROJECT_NAME}-config.cmake
 	"${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
 	COPYONLY)
 
-install(TARGETS slam_vdb slam_vdb_interface
+install(TARGETS slam_vdb
 	EXPORT ${PROJECT_NAME}-targets
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

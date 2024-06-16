@@ -25,4 +25,4 @@ set_target_properties(unit_tests PROPERTIES FOLDER "./" CXX_STANDARD 17 CXX_STAN
 add_test(unit_tests_build "${CMAKE_COMMAND}" --build ${CMAKE_BINARY_DIR} --target unit_tests)
 add_test(unit_tests_run ${EXECUTABLE_OUTPUT_PATH}/unit_tests)
 set_tests_properties(unit_tests_run PROPERTIES DEPENDS unit_tests_build)
-target_link_libraries(unit_tests gtest gtest_main SLAM_VDB::slam_vdb)
+target_link_libraries(unit_tests gtest gtest_main slam_vdb::slam_vdb)
