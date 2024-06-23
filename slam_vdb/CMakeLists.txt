@@ -63,7 +63,7 @@ message(STATUS "Build Documentation: " ${BUILD_DOCUMENTATION})
 # Target linked with interface
 
 # Define the library
-add_library(slam_vdb SHARED)
+add_library(slam_vdb "")
 add_library(slam_vdb::slam_vdb ALIAS slam_vdb)
 
 # Set compile options
@@ -81,7 +81,7 @@ target_include_directories(slam_vdb
 )
 
 target_link_libraries(slam_vdb
-	PUBLIC Eigen3::Eigen
+	INTERFACE Eigen3::Eigen
 )
 
 # Add the sources to the target
