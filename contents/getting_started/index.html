@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; slam_vdb 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Design" href="../design/index.html" />
+    <link rel="prev" title="SLAM VDB" href="../../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            slam_vdb
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-from-source">Building from source</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#step-1-build-the-slam-vdb-library">Step 1: Build the <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> Library</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#step-2-build-the-ros-wrapper-slam-vdb-ros">Step 2: Build the ROS wrapper <code class="docutils literal notranslate"><span class="pre">slam_vdb_ros</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#using-docker">Using Docker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#build-and-run">Build and Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#customizing-the-dockerfile">Customizing the Dockerfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../design/index.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../design/proposals/index.html">Design Proposals</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../design/proposals/current/system_architecture.html">System Architecture</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">slam_vdb</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/contents/getting_started/index.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h1>
+<p>This guide will show you all the necessary installation steps required to use SLAM-VDB for developing and testing simultaneous localization and mapping applications.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<section id="building-from-source">
+<h3>Building from source<a class="headerlink" href="#building-from-source" title="Permalink to this heading"></a></h3>
+<section id="step-1-build-the-slam-vdb-library">
+<h4>Step 1: Build the <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> Library<a class="headerlink" href="#step-1-build-the-slam-vdb-library" title="Permalink to this heading"></a></h4>
+<p>First, clone the <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> repository and build the library:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mlsdpk/slam_vdb.git
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>slam_vdb
+$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+$<span class="w"> </span>cmake<span class="w"> </span>..
+$<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+<p>This will install the library into the GNU default location, which is usually <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>. If you prefer to install it at a specific location, use the CMake option <code class="docutils literal notranslate"><span class="pre">-DSLAMVDB_INSTALL_DIR</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cmake<span class="w"> </span>-DSLAMVDB_INSTALL_DIR<span class="o">=</span>/your/installation/path<span class="w"> </span>..
+$<span class="w"> </span>make<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="step-2-build-the-ros-wrapper-slam-vdb-ros">
+<h4>Step 2: Build the ROS wrapper <code class="docutils literal notranslate"><span class="pre">slam_vdb_ros</span></code><a class="headerlink" href="#step-2-build-the-ros-wrapper-slam-vdb-ros" title="Permalink to this heading"></a></h4>
+<p>If you installed <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> using the default flags, you can build the <code class="docutils literal notranslate"><span class="pre">slam_vdb_ros</span></code> wrapper as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>slam_vdb_ros
+$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</pre></div>
+</div>
+<p>If you installed <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> in a custom directory, specify the location of the <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> library when building <code class="docutils literal notranslate"><span class="pre">slam_vdb_ros</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--ament-cmake-args<span class="w"> </span>-DSLAM_VDB_LOCATION<span class="o">=</span><span class="s2">&quot;/path/to/slam_vdb/install_directory&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-docker">
+<h3>Using Docker<a class="headerlink" href="#using-docker" title="Permalink to this heading"></a></h3>
+<section id="prerequisites">
+<h4>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h4>
+<p>Ensure Docker is installed on your system. Follow the official <a class="reference external" href="https://docs.docker.com/engine/install/">Docker installation guide</a> if it is not installed.</p>
+</section>
+<section id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h4>
+<p>To set up Docker for running the <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code> package, follow these steps:</p>
+<ol class="arabic">
+<li><p><strong>Run the Setup Script</strong></p>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">Docker</span></code> directory in the main repository and execute the <code class="docutils literal notranslate"><span class="pre">setup.sh</span></code> script. This script will create a <code class="docutils literal notranslate"><span class="pre">bash</span></code>/<code class="docutils literal notranslate"><span class="pre">zsh</span></code> function on your machine inside <code class="docutils literal notranslate"><span class="pre">bashrc</span></code>/<code class="docutils literal notranslate"><span class="pre">zshrc</span></code> that will allow you to compose a Docker image and run the containers.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>Docker
+$<span class="w"> </span>./setup.sh
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This is a one-time script. You don’t need to run it every time you want to use Docker with <code class="docutils literal notranslate"><span class="pre">slam_vdb</span></code>.</p>
+</section>
+<section id="build-and-run">
+<h4>Build and Run<a class="headerlink" href="#build-and-run" title="Permalink to this heading"></a></h4>
+<p>Once the setup is complete, you can build and run the Docker image using the following steps:</p>
+<ol class="arabic">
+<li><p><strong>Build the Docker Image</strong></p>
+<p>Specify your Docker image name and the path to the source package:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ros_dep<span class="w"> </span>YOUR_IMAGE_NAME<span class="w"> </span>/path/to/the/pkg
+</pre></div>
+</div>
+</li>
+<li><p><strong>Launch a New Terminal in Your Docker Container</strong></p>
+<p>To open a new terminal in your running Docker container, use the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>YOUR_CONTAINER_NAME<span class="w"> </span>/bin/bash
+</pre></div>
+</div>
+<p>Note: Your image name will also be your container name.</p>
+</li>
+<li><p><strong>Visualize Your Docker Container</strong></p>
+<p>Once the build is complete, your containers should be up and running. You can visualize your Docker container by navigating to <code class="docutils literal notranslate"><span class="pre">http://localhost:8080/vnc.html</span></code>. This visualization is made possible with the repository <a class="reference external" href="https://github.com/adeeb10abbas/ros2-docker-dev">ros2-docker-dev</a>.</p>
+</li>
+</ol>
+</section>
+<section id="customizing-the-dockerfile">
+<h4>Customizing the Dockerfile<a class="headerlink" href="#customizing-the-dockerfile" title="Permalink to this heading"></a></h4>
+<p>The current <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> is configured for <code class="docutils literal notranslate"><span class="pre">ros:foxy</span></code>. You can modify the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> according to your requirements. The <code class="docutils literal notranslate"><span class="pre">Docker</span></code> folder in the main repository contains the necessary files.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, SLAM VDB Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
